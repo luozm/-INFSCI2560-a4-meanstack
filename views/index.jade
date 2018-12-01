@@ -1,0 +1,11 @@
+extends layout
+
+block content
+	h1= title
+	p Welcome to #{title}
+	div(ng-controller="TodoController")
+		input(type="text", placeholder="item", ng-model="search.name" title="Search:")
+		ul
+			li(ng-repeat="todo in todos | filter search")
+			input(type="checkbox" ng-model="todo.completed")
+			a {{todo.name}}
